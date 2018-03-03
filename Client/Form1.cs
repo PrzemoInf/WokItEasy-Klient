@@ -129,7 +129,7 @@ namespace Client
                 k = stm.Read(bb, 0, 100);
                 tekst = "";
                 for (int i = 0; i < k; i++) tekst += (Convert.ToChar(bb[i]));
-            } while (tekst != "OK");//potwierdzenie od serwera o przyjeciu checi logowania
+            } while (tekst != "OK");//potwierdzenie od serwera o przyjeciu checi przesłania danych
             do
             {
                 str = Convert.ToString(OrderBox.Items.Count);//wysłanie komunikatu o ilosci elementów w zamówieniu
@@ -145,21 +145,15 @@ namespace Client
             {
                 text = OrderBox.Items[i].ToString();
                 string[] split = text.Split('\t');
-                //MessageBox.Show(split[0]);
                 int id = -1;
                 foreach(var skladnik in l_Skladnik)//ustalanie id produktu
                 {
                     if (skladnik.NazwaSM == split[0] && id < 0)
                     {
                         id = skladnik.IdSM;
-                        //MessageBox.Show(Convert.ToString(id));
                         break;
                     }
-                    
-                    
-                    
                 }
-                
                 do//przesył id produktu
                 {
                     str = Convert.ToString(id);
@@ -170,7 +164,6 @@ namespace Client
                     tekst = "";
                     for (int j = 0; j < k; j++) tekst += (Convert.ToChar(bb[j]));
                 } while (tekst != "OK");
-                
             }
             tcpclnt.Close();
         }
