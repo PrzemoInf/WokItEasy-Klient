@@ -38,6 +38,8 @@
             this.OrderBox = new System.Windows.Forms.ListBox();
             this.Delete = new System.Windows.Forms.Button();
             this.SendOrder = new System.Windows.Forms.Button();
+            this.IPBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -90,6 +92,7 @@
             this.ProductList.Name = "ProductList";
             this.ProductList.Size = new System.Drawing.Size(214, 21);
             this.ProductList.TabIndex = 5;
+            this.ProductList.Visible = false;
             // 
             // Dodaj
             // 
@@ -99,6 +102,7 @@
             this.Dodaj.TabIndex = 9;
             this.Dodaj.Text = "Dodaj>>";
             this.Dodaj.UseVisualStyleBackColor = true;
+            this.Dodaj.Visible = false;
             this.Dodaj.Click += new System.EventHandler(this.Dodaj_Click);
             // 
             // OrderBox
@@ -108,6 +112,7 @@
             this.OrderBox.Name = "OrderBox";
             this.OrderBox.Size = new System.Drawing.Size(215, 277);
             this.OrderBox.TabIndex = 10;
+            this.OrderBox.Visible = false;
             // 
             // Delete
             // 
@@ -117,6 +122,7 @@
             this.Delete.TabIndex = 11;
             this.Delete.Text = "<<Usuń";
             this.Delete.UseVisualStyleBackColor = true;
+            this.Delete.Visible = false;
             this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
             // SendOrder
@@ -127,13 +133,33 @@
             this.SendOrder.TabIndex = 12;
             this.SendOrder.Text = "Wyślij->";
             this.SendOrder.UseVisualStyleBackColor = true;
+            this.SendOrder.Visible = false;
             this.SendOrder.Click += new System.EventHandler(this.SendOrder_Click);
+            // 
+            // IPBox
+            // 
+            this.IPBox.Location = new System.Drawing.Point(208, 16);
+            this.IPBox.Name = "IPBox";
+            this.IPBox.Size = new System.Drawing.Size(100, 20);
+            this.IPBox.TabIndex = 13;
+            this.IPBox.Text = "127.0.0.1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(185, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(17, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "IP";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(544, 393);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.IPBox);
             this.Controls.Add(this.SendOrder);
             this.Controls.Add(this.Delete);
             this.Controls.Add(this.OrderBox);
@@ -163,6 +189,8 @@
         private System.Windows.Forms.ListBox OrderBox;
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.Button SendOrder;
+        private System.Windows.Forms.TextBox IPBox;
+        private System.Windows.Forms.Label label1;
     }
 }
 

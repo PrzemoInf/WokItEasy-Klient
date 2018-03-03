@@ -29,7 +29,7 @@ namespace Client
             StreamReader sr;
             ASCIIEncoding asen = new ASCIIEncoding();
             TcpClient tcpclnt = new TcpClient();
-            tcpclnt.Connect("127.0.0.1", 8001);
+            tcpclnt.Connect(IPBox.Text, 8001);
             Stream stm = tcpclnt.GetStream();
             string str;
             byte[] ba;
@@ -85,48 +85,21 @@ namespace Client
                     tekst = skladnik.NazwaSM + "\t Cena: " + skladnik.CenaSM;
                     ProductList.Items.Add(tekst);
                 }
-                ////MessageBox.Show("Logowanie zakonczone sukcesem."); // ten wycinek kodu jest starym kodem który nie będzie juz raczej używany
-                //k = stm.Read(bb, 0, 100);//wczytywanie ilosci elementów// ale może przydać sie mi do analizy. Usunę go później
-                //tekst = "";
-                //for (int i = 0; i < k; i++) tekst += (Convert.ToChar(bb[i]));
-                //int ilosc = Convert.ToInt32(tekst);
-                //ba = asen.GetBytes("OK");
-                //stm.Write(ba, 0, ba.Length);
-                //for(int i=0;i<ilosc;i++)
-                //{
-                //    //MessageBox.Show("Klient Stop1");
-                //    bb = new byte[100];
-                //    k = stm.Read(bb, 0, 100);
-                //    tekst = "";
-                //    for (int j = 0; j < k; j++) tekst += (Convert.ToChar(bb[j]));
-                //    //MessageBox.Show(tekst);
-                //    ba = asen.GetBytes("OK");
-                //    stm.Write(ba, 0, ba.Length); //odbiór i potwierdzenie odbioru danych
-                //    // dodanie danych do klasy
-                //}
-
-
-
+                OrderBox.Visible = true;
+                ProductList.Visible = true;
+                Dodaj.Visible = true;
+                Delete.Visible = true;
+                SendOrder.Visible = true;
 
             } 
             else if (tekst == "W") MessageBox.Show("Niepoprawne dane");
             tcpclnt.Close();
-            //catch (Exception e)
-            //{
-            //    Console.WriteLine("Error..... " + e.StackTrace);
-            //}
+            
         }
 
         private void Dodaj_Click(object sender, EventArgs e)
         {
             OrderBox.Items.Add(ProductList.Text);
-            // comboBox1.SelectedIndex
-            //string tekst = ProductList.Name;
-            //string[] split = tekst.Split('\t');
-            //foreach(var skladnik in l_Skladnik)
-            //{
-            //    if (skladnik.NazwaSM == split[0]) ;
-            //}
         }
 
         private void Delete_Click(object sender, EventArgs e)
